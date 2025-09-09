@@ -1,0 +1,54 @@
+research_task:
+  description: >
+    Conduct a thorough research about {topic}.
+    Return EXACTLY 10 numbered bullets (1..10), one idea per bullet.
+    Each bullet must start with a short title, then a concise explanation.
+    If fewer than 10 strong items exist, fill the remaining with 
+    "Placeholder – needs more data".
+    The current year is {current_year}.
+  expected_output: >
+    A list of 10 numbered bullets (1..10). 
+    No prose before or after. No Markdown fences.
+  agent: researcher
+
+reporting_task:
+  description: >
+    You are given EXACTLY the following 10 bullets from the Researcher, 
+    which are the SOLE source of truth about the topic "{topic}".
+    You MUST build a report STRICTLY from these 10 bullets. 
+
+    ABSOLUTE RULES:
+      - Do NOT add new bullets, topics, or trends.
+      - Do NOT replace Researcher content with your own ideas.
+      - Do NOT summarize into different categories.
+      - If you cannot expand a bullet with the given information, 
+        copy it as-is and add a short note "Needs more detail".
+      - Executive Summary must mention the topic "{topic}" 
+        AND explicitly refer to all 10 bullets.
+      - The final report MUST contain 10 numbered sections (## 1 … ## 10), 
+        each one directly based on the corresponding Researcher bullet.
+
+    STRUCTURE:
+      1. Executive Summary (≤ 6 sentences).
+      2. Ten sections (## 1 … ## 10):
+         - Heading: "## [number]. [original bullet title]"
+         - Body: use ONLY the bullet’s content, rephrased or slightly expanded.
+      3. Coverage Check: list 1–10 with “Covered” if section present.
+      4. If any item is missing, end with: "INCOMPLETE – request clarification".
+
+    FORMATTING:
+      - Output in Markdown.
+      - No code fences (```).
+      - Use "##" for sections, "###" for optional subsections.
+
+  expected_output: >
+    A professional Markdown report STRICTLY based on the 10 bullets 
+    from the Researcher, covering the topic "{topic}" with:
+      - Executive Summary
+      - 10 numbered sections (## 1 … ## 10 …)
+      - Coverage Check
+      - INCOMPLETE message if any bullet is missing
+  agent: reporting_analyst
+
+
+
