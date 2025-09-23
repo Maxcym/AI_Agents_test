@@ -12,8 +12,8 @@ Each function below is a thin wrapper around `LatestAiDevelopment().crew()`
 and should not contain additional business logic.
 
 Environment variables:
-    MODEL (str):     The model identifier to be used by the crew (optional).
-    API_BASE (str):  The base URL of the API used by the crew (optional).
+    MODEL (str):     The model identifier to be used by the crew.
+    API_BASE (str):  The base URL of the API used by the crew.
 """
 
 import os
