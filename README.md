@@ -34,7 +34,6 @@ Il définit un *crew* (équipe) d’agents capables de **rechercher**, **analyse
 ```bash
 # Cloner le dépôt
 git clone https://github.com/Maxcym/AI_Agents_test
-cd AI_Agents_test
 
 # Créer un environnement virtuel
 python -m venv .venv
@@ -42,3 +41,7 @@ source .venv/bin/activate   # sous Windows : .venv\Scripts\activate
 
 # Installer les dépendances
 pip install -r requirements.txt
+
+#Lancer le crew
+crewai run
+
